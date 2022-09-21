@@ -164,6 +164,8 @@ export const convertDateToString = dateObj => {
 export const generateXML = (file, size, shapes) => {
   const annotation = annotationFactory(file);
   annotation.size = imageSizeFactory(size);
+  annotation.folder = shapes[0]?.label;
+  annotation.path = `./${shapes[0]?.label}/${file.name}`;
   annotation.object = shapes.map(shape => annotationObjectFactory(shape));
   const obj = { annotation };
   let xmlStr = '';
@@ -185,9 +187,11 @@ export const exportXML = (xmlStr, fileName = 'label.xml') => {
   a.click();
 };
 
-export const exportZip = (files, xmls) => {
+export const exportZip = (files, xmls, shapes) => {
+  const folderLabel = shapes[0]?.[0]?.label || defaultSaveFolder;
+
   const zip = new JSZip();
-  const folder = zip.folder(defaultSaveFolder);
+  const folder = zip.folder(folderLabel);
   files.forEach((file, index) => {
     folder.file(file.name, file);
     folder.file(`${file.name.split('.')[0]}.xml`, xmls[index]);

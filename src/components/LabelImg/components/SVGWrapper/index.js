@@ -214,7 +214,6 @@ function SVGWrapper() {
       dispatch({ type: actionTypes.SET_SEL_SHAPE_INDEX, payload: { selShapeIndex: null } });
       return;
     }
-
     if (drawStatus === drawStatusTypes.IDLE) {
       // start drawing
       const newShape = shapeFactory(mouseCoordinate);

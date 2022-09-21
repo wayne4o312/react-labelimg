@@ -15,8 +15,8 @@ export const shapeTypes = {
   POLYGON: 'polygon'
 };
 export const shapeTypeOptions = [
-  { value: shapeTypes.RECTANGLE, label: 'Rectangle' },
-  { value: shapeTypes.POLYGON, label: 'Polygon' }
+  { value: shapeTypes.RECTANGLE, label: '矩形' },
+  { value: shapeTypes.POLYGON, label: '多边形' }
 ];
 
 export const defaultSaveFolder = 'labels';

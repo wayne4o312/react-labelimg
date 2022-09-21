@@ -71,7 +71,7 @@ function DrawTool() {
           disabled={currentShape === null}
           style={{ width: '100%' }}
         >
-          Reset
+          重置
         </Button>
       </Col>
       <Col xs={24}>
@@ -81,7 +81,7 @@ function DrawTool() {
           disabled={selShapeIndex === null}
           style={{ width: '100%' }}
         >
-          Clear Select
+          清空选中
         </Button>
       </Col>
       <Col xs={24}>
@@ -91,7 +91,7 @@ function DrawTool() {
           disabled={!shapes[selDrawImageIndex] || shapes[selDrawImageIndex].length === 0}
           style={{ width: '100%' }}
         >
-          Clear All
+          清空
         </Button>
       </Col>
     </Row>

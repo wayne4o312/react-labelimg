@@ -69,14 +69,14 @@ function FileTool() {
     const xmls = imageFiles.map((file, index) => (
       generateXML(file, imageSizes[index], shapes[index])
     ));
-    exportZip(imageFiles, xmls);
+    exportZip(imageFiles, xmls, shapes);
   };
 
   return (
     <ul className="file-tool-container">
       <li>
         <label>
-          <span>Open</span>
+          <span>选择图片</span>
           <input
             type="file"
             accept={imageTypes.map(type => `.${type}`).join(',')}
@@ -88,7 +88,7 @@ function FileTool() {
       </li>
       <li>
         <label>
-          <span>Open Dir</span>
+          <span>选择文件夹</span>
           <input
             type="file"
             accept={imageTypes.map(type => `.${type}`).join(',')}
@@ -101,16 +101,16 @@ function FileTool() {
         </label>
       </li>
       <li>
-        <span onClick={onUrlClick}>Open URL</span>
+        <span onClick={onUrlClick}>从URL打开</span>
       </li>
       <li>
-        <span onClick={onNextImageClick}>Next Image</span>
+        <span onClick={onNextImageClick}>下一张</span>
       </li>
       <li>
-        <span onClick={onPrevImageClick}>Prev Image</span>
+        <span onClick={onPrevImageClick}>上一张</span>
       </li>
       <li>
-        <span onClick={onSaveClick}>Save</span>
+        <span onClick={onSaveClick}>保存</span>
       </li>
     </ul>
   );

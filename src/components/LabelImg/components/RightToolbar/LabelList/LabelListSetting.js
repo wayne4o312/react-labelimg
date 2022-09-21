@@ -1,3 +1,9 @@
+/*
+ * @Author: wayne
+ * @Date: 2022-09-20 17:11:34
+ * @LastEditors: wayne
+ * @LastEditTime: 2022-09-21 11:28:15
+ */
 import { Menu, Dropdown, Button } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import { cloneDeep } from 'lodash';
@@ -9,7 +15,7 @@ function LabelListSetting() {
   const { selDrawImageIndex, shapes, selShapeIndex } = state;
 
   const onShowAllClick = visible => {
-    if (shapes[selDrawImageIndex].length === 0) return;
+    if (shapes[selDrawImageIndex]?.length === 0) return;
     const shapesCopy = cloneDeep(shapes);
     shapesCopy[selDrawImageIndex] = shapesCopy[selDrawImageIndex].map(item => {
       if (item.visible === visible) return item;
@@ -24,20 +30,20 @@ function LabelListSetting() {
   };
 
   const onClearAllClick = () => {
-    if (shapes[selDrawImageIndex].length === 0) return;
+    if (shapes[selDrawImageIndex]?.length === 0) return;
     dispatch({ type: actionTypes.DELETE_ALL_SHAPES });
   };
 
   const menu = (
     <Menu>
       <Menu.Item>
-        <Button type="text" size="small" onClick={() => onShowAllClick(true)}>Show All</Button>
+        <Button type="text" size="small" onClick={() => onShowAllClick(true)}>全部显示</Button>
       </Menu.Item>
       <Menu.Item>
-        <Button type="text" size="small" onClick={() => onShowAllClick(false)}>Hide All</Button>
+        <Button type="text" size="small" onClick={() => onShowAllClick(false)}>全部隐藏</Button>
       </Menu.Item>
       <Menu.Item>
-        <Button type="text" size="small" onClick={onClearAllClick}>Clear All</Button>
+        <Button type="text" size="small" onClick={onClearAllClick}>清空</Button>
       </Menu.Item>
     </Menu>
   );

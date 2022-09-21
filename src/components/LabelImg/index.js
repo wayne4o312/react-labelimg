@@ -67,6 +67,7 @@ function LabelImg(props) {
               justify="center"
               style={{ height: '100%' }}
             >
+
               <Col xs={24} md={3} style={{ maxHeight: '100%', overflow: 'auto' }}>
                 <LeftToolbar />
               </Col>

@@ -88,7 +88,7 @@ function FileListSetting() {
       );
       xmls.push(xml);
     });
-    exportZip(files, xmls);
+    exportZip(files, xmls, shapes);
   };
 
   const onSaveAllClick = () => {
@@ -99,28 +99,28 @@ function FileListSetting() {
     const xmls = imageFiles.map((file, index) => (
       generateXML(file, imageSizes[index], shapes[index])
     ));
-    exportZip(imageFiles, xmls);
+    exportZip(imageFiles, xmls, shapes);
   };
 
   const menu = (
     <Menu>
       <Menu.Item>
-        <Button type="text" size="small" onClick={() => onSelectClick(true)}>Select All</Button>
+        <Button type="text" size="small" onClick={() => onSelectClick(true)}>全选</Button>
       </Menu.Item>
       <Menu.Item>
-        <Button type="text" size="small" onClick={() => onSelectClick(false)}>Select None</Button>
+        <Button type="text" size="small" onClick={() => onSelectClick(false)}>全部取消</Button>
       </Menu.Item>
       <Menu.Item>
-        <Button type="text" size="small" onClick={onClearSelectClick}>Clear Select</Button>
+        <Button type="text" size="small" onClick={onClearSelectClick}>清空选中</Button>
       </Menu.Item>
       <Menu.Item>
-        <Button type="text" size="small" onClick={onClearAllClick}>Clear All</Button>
+        <Button type="text" size="small" onClick={onClearAllClick}>全部清空</Button>
       </Menu.Item>
       <Menu.Item>
-        <Button type="text" size="small" onClick={onSaveSelectClick}>Save Select</Button>
+        <Button type="text" size="small" onClick={onSaveSelectClick}>保存选中</Button>
       </Menu.Item>
       <Menu.Item>
-        <Button type="text" size="small" onClick={onSaveAllClick}>Save All</Button>
+        <Button type="text" size="small" onClick={onSaveAllClick}>保存</Button>
       </Menu.Item>
     </Menu>
   );
